@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .cart-wrap { width: 90%; max-width: 800px; margin: 40px auto; }
+        .cart-row { display:flex; align-items:center; justify-content:space-between; background:white; padding:15px 20px; border-radius:8px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+        .cart-row img { width:60px; border-radius:6px; margin-right:15px; }
+        .cart-row .left { display:flex; align-items:center; }
+        .cart-total { text-align:right; font-size:22px; margin:20px 0; }
+        .checkout-btn { background:black; color:white; padding:14px 30px; border:none; border-radius:6px; cursor:pointer; float:right; }
+        .empty { text-align:center; color:#777; margin-top:60px; }
+    </style>
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cont.html">Contact</a></p>
+            <p><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></p>
+        </div>
+    </nav>
+
+    <div class="cart-wrap" id="cart-wrap">
+        <h1>Your Cart</h1>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total"></div>
+        <button class="checkout-btn" id="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        async function loadCart() {
+            const res = await fetch("/api/cart", { credentials: "include" });
+            const data = await res.json();
+            const container = document.getElementById("cart-items");
+            const totalEl = document.getElementById("cart-total");
+            const checkoutBtn = document.getElementById("checkout-btn");
+
+            if (data.items.length === 0) {
+                container.innerHTML = '<p class="empty">Your cart is empty. <a href="product.html">Browse products</a></p>';
+                totalEl.textContent = "";
+                checkoutBtn.style.display = "none";
+                return;
+            }
+
+            container.innerHTML = data.items.map(item => `
+                <div class="cart-row">
+                    <div class="left">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            Qty: ${item.quantity} × ₹${item.price}
+                        </div>
+                    </div>
+                    <div>
+                        <strong>₹${item.price * item.quantity}</strong>
+                        <button onclick="removeItem(${item.id})" style="margin-left:15px; background:none; border:none; color:red; cursor:pointer;">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join("");
+
+            totalEl.textContent = `Total: ₹${data.total}`;
+        }
+
+        async function removeItem(id) {
+            await fetch(`/api/cart/${id}`, { method: "DELETE", credentials: "include" });
+            loadCart();
+        }
+
+        loadCart();
+    </script>
+</body>
+
+</html>

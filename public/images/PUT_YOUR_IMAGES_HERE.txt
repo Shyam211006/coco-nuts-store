@@ -1,0 +1,19 @@
+Drop your product photos in this folder using these exact filenames
+(these are the names referenced in the HTML/CSS/JS):
+
+  pic1.png   -> Fresh Coconut
+  pic2.png   -> Coconut Water
+  pic3.png   -> Coconut Oil
+  pic4.png   -> Coconut Chocolate
+  pic5.png   -> Coconut Soap
+  pic6.png   -> Shell Product
+  pic7.png   -> Coconut Fiber
+  pic8.png   -> Coconut Milk & Cream
+  pic9.png   -> Desiccated Coconut
+  image.png  -> Homepage hero image
+
+If your files are .jpg or .webp instead of .png, either rename them to .png,
+or update the "src=" reference in the matching .html file (and in seed.js
+for the product images) to match your real file extension.
+
+You can delete this text file once your images are in place.

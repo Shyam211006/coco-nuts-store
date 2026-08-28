@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coconut</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cont.html">Contact</a></p>
+
+        </div>
+        <div class="obj-toggle" onclick="shownavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <div class="side-nav">
+        <p style="text-align: right;" onclick="cancelnavbar()">
+            <i class="fa-solid fa-xmark"></i>
+        </p>
+        <p class="side-navigation"><a href="index.html">Home</a></p>
+        <p class="side-navigation"><a href="product.html">Product</a></p>
+        <p class="side-navigation"><a href="cont.html">Contact</a></p>
+    </div>
+    <div class="header">
+        <div>
+            <h1>Product</h1>
+            <p>with over stunning Products</p>
+            <button class="header-button" id="demo" onclick="goToPage()" style="cursor: pointer;">Shop Now</button>
+
+        </div>
+        <img src="images/image.webp" alt="Tree" class="image" style="border-radius: 5px;">
+    </div>
+    <div class="service">
+        <div class="service-1">
+            <div>
+                <h2>We Provide best</h2>
+                <h2>Customer Experience</h2>
+            </div>
+            <div>
+                <h5>|| We Ensure that our customer have the best experience</h5>
+            </div>
+        </div>
+        <div class="box">
+            <div>
+                <i class="fa-regular fa-face-smile"></i>
+                <h3>Quality Products</h3>
+                <hr>
+                <p>We provide premium-quality coconut products that are fresh, natural, and carefully selected to ensure
+                    the best experience for our customers.</p>
+            </div>
+            <div>
+                <i class="fa-regular fa-face-smile"></i>
+                <h3>Fast Delivery</h3>
+                <hr>
+                <p>We ensure quick and reliable delivery so that your favorite coconut products reach you fresh and on
+                    time. </p>
+            </div>
+            <div>
+                <i class="fa-regular fa-face-smile"></i>
+                <h3>Customer Support</h3>
+                <hr>
+                <p>Our support team is always ready to help you with product details, orders, and any questions to
+                    ensure a smooth shopping experience. </p>
+            </div>
+        </div>
+    </div>
+    <h1 style="margin-bottom: 10px; margin-left: 10px;">Best Product</h1>
+    <div class="pic">
+        <div class="pic-container">
+            <img src="images/pic1.png">
+            <button onclick="goto()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="pic-container">
+            <img src="images/pic2.png">
+            <button onclick="goto1()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="pic-container">
+            <img src="images/pic3.png">
+            <button onclick="goto2()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="pic-container">
+            <img src="images/pic4.png">
+            <button onclick="goto3()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+    <div class="sub">
+        <h1>Join Our News Letter</h1>
+        <p>Signup for our email newsletter to get exclusive dicounts and updates and more...</p>
+        <div>
+            <input type="text" class="int">
+        </div>
+        <div>
+            <button>Subscribe</button>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bottom-1">
+            <div class="bottom-box">
+                <h1>Coco Nuts</h1>
+                <p>We are here to help you with all your coconut product needs. Feel free to contact us for any
+                    questions, product details, or order support. </p>
+            </div>
+            <div class="bottom-icon">
+                <i class="fa-brands fa-instagram" style="color:#ffffff; margin-top: 5px;"></i>
+                <i class="fa-brands fa-facebook" style="color:#ffffff" ; margin-top: 5px;></i>
+                <i class="fa-brands fa-twitter" style="color:#ffffff" ; margin-top: 5px;></i>
+            </div>
+            <p>coconutstore@gmail.com</p>
+        </div>
+    </div>
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

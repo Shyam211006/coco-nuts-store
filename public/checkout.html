@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .checkout-wrap { width:90%; max-width:500px; margin:50px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,.1); }
+        .checkout-wrap input, .checkout-wrap textarea { width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; font-size:15px; }
+        .checkout-wrap button { width:100%; padding:14px; background:black; color:white; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+    </style>
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cart.html">Cart</a></p>
+        </div>
+    </nav>
+
+    <div class="checkout-wrap">
+        <h1>Checkout</h1>
+        <form id="checkout-form">
+            <input type="text" id="co-name" placeholder="Full Name" required>
+            <input type="email" id="co-email" placeholder="Email" required>
+            <input type="text" id="co-phone" placeholder="Phone Number">
+            <textarea rows="3" id="co-address" placeholder="Delivery Address" required></textarea>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        document.getElementById("checkout-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const payload = {
+                name: document.getElementById("co-name").value,
+                email: document.getElementById("co-email").value,
+                phone: document.getElementById("co-phone").value,
+                address: document.getElementById("co-address").value
+            };
+            const res = await fetch("/api/orders", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+               if (res.ok) {
+                window.location.href = `order-success.html?orderId=${data.orderId}&total=${data.total}`;
+                
+            } else {
+                alert(data.error);
+            }
+        });
+    </script>
+</body>
+
+</html>

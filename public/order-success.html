@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .success-wrap {
+            width: 90%;
+            max-width: 480px;
+            margin: 70px auto;
+            background: white;
+            padding: 50px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.12);
+            text-align: center;
+        }
+
+        .tick-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #2e7d32;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pop .35s ease-out;
+        }
+
+        .tick-circle svg {
+            width: 46px;
+            height: 46px;
+        }
+
+        @keyframes pop {
+            0%   { transform: scale(0); opacity: 0; }
+            70%  { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .success-wrap h1 {
+            color: #1b5e20;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .success-wrap p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .order-details {
+            background: #f4f4f4;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .order-details div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .order-details div:last-child {
+            margin-bottom: 0;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+
+        .success-wrap a.button {
+            display: inline-block;
+            background: black;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cont.html">Contact</a></p>
+        </div>
+    </nav>
+
+    <div class="success-wrap">
+        <div class="tick-circle">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <h1>Your order was placed successfully!</h1>
+        <p id="success-message">Thank you for shopping with Coco Nuts. We'll start getting your order ready.</p>
+
+        <div class="order-details" id="order-details">
+            <!-- filled in by JavaScript below -->
+        </div>
+
+        <a href="index.html" class="button">Continue Shopping</a>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        // Reads the order info that checkout.html saved right before redirecting here.
+        const params = new URLSearchParams(window.location.search);
+        const orderId = params.get("orderId");
+        const total = params.get("total");
+
+        const detailsBox = document.getElementById("order-details");
+
+        if (orderId) {
+            detailsBox.innerHTML = `
+                <div><span>Order ID</span><span>#${orderId}</span></div>
+                <div><span>Total Paid</span><span>₹${total}</span></div>
+            `;
+        } else {
+            // If someone opens this page directly without placing an order
+            detailsBox.innerHTML = `<div><span>No recent order found.</span></div>`;
+        }
+    </script>
+</body>
+
+</html>

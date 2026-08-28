@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cont.html">Contact</a></p>
+
+        </div>
+        <div class="obj-toggle" onclick="shownavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <div class="side-nav">
+        <p style="text-align: right;" onclick="cancelnavbar()">
+            <i class="fa-solid fa-xmark"></i>
+        </p>
+        <p class="side-navigation"><a href="index.html">Home</a></p>
+        <p class="side-navigation"><a href="product.html">Products</a></p>
+        <p class="side-navigation"><a href="cont.html">Contact</a></p>
+    </div>
+    </div>
+    <div class="search">
+        <form class="searchbar">
+            <input type="text" id="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+        </form>
+
+        <center>
+            <div class="pic" id="products">
+                <div class="pic-container">
+                    <img src="images/pic1.png">
+                    <button onclick="goto()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Coconut</h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic2.png">
+                    <button onclick="goto1()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Coconut
+                        Water</h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic3.png">
+                    <button onclick="goto2()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Coconut oil
+                    </h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic4.png">
+                    <button onclick="goto3()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Chocolate
+                    </h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic5.png" width="200px" height="200px">
+                    <button onclick="goto4()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Coconut Soap
+                    </h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic6.png" width="200px" height="200px">
+                    <button onclick="goto5()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Shell
+                        Product</h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic7.png" width="200px" height="200px">
+                    <button onclick="goto6()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Coconut
+                        Fiber</h5>
+                </div>
+                <div class="pic-container">
+                    <img src="images/pic8.png" width="200px" height="200px">
+                    <button onclick="goto7()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Milk & Cream
+                    </h5>
+                </div>
+                <div class="pic-container2">
+                    <img src="images/pic9.png" width="200px" height="200px">
+                    <button onclick="goto8()">Shop Now<i class="fa-solid fa-arrow-right"></i></button>
+                    <h5 style="font-family: 'Lucida Console', 'Courier New', 'monospace'; font-size: 18px;">Desiccated
+                        Coconut</h5>
+                </div>
+            </div>
+        </center>
+    </div>
+    <div class="bottom">
+        <div class="bottom-1">
+            <div class="bottom-box">
+                <h1>Coco Nuts</h1>
+                <p>We are here to help you with all your coconut product needs. Feel free to contact us for any
+                    questions, product details, or order support. </p>
+            </div>
+            <div class="bottom-icon">
+                <i class="fa-brands fa-instagram" style="color:#ffffff; margin-top: 5px;"></i>
+                <i class="fa-brands fa-facebook" style="color:#ffffff" ; margin-top: 5px;></i>
+                <i class="fa-brands fa-twitter" style="color:#ffffff" ; margin-top: 5px;></i>
+            </div>
+            <p>coconutstore@gmail.com</p>
+        </div>
+    </div>
+
+
+
+
+    <script src="collection.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

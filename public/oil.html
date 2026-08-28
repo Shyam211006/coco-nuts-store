@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coconut Water</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navigation">
+        <h1 onclick="home()" style="cursor: pointer;">Coco Nuts 🥥</h1>
+        <div class="bar">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="product.html">Products</a></p>
+            <p><a href="cont.html">Contact</a></p>
+
+        </div>
+        <div class="obj-toggle" onclick="shownavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <div class="side-nav">
+        <p style="text-align: right;" onclick="cancelnavbar()">
+            <i class="fa-solid fa-xmark"></i>
+        </p>
+        <p class="side-navigation"><a href="index.html">Home</a></p>
+        <p class="side-navigation"><a href="product.html">Product</a></p>
+        <p class="side-navigation"><a href="cont.html">Contact</a></p>
+    </div>
+    <div class="product">
+
+        <div class="image">
+            <img src="images/pic3.png" alt="Fresh Coconut" width="200px" style="padding-right: 30px;">
+        </div>
+
+        <div class="details">
+
+            <h1>Coconut oil</h1>
+
+            <h3>★★★★★ (4.8/5)</h3>
+
+            <h2>₹300 <span>₹428</span></h2>
+
+            <p>
+                Enjoy the purity of natural coconut oil, made from fresh coconuts using high-quality extraction methods.
+                Rich in healthy fats, vitamins, and antioxidants, it is perfect for cooking, hair care, skincare, and
+                everyday wellness. A natural choice for a healthy lifestyle.
+            </p>
+
+            <label>Quantity</label>
+
+            <select>
+                <option>1 Piece</option>
+                <option>2 Pieces</option>
+                <option>3 Pieces</option>
+                <option>5 Pieces</option>
+                <option>10 Pieces</option>
+            </select>
+
+            <div class="buttons">
+                <button class="cart">Add to Cart</button>
+                <button class="buy">Buy Now</button>
+            </div>
+
+            <div class="info">
+
+                <h3>Product Details</h3>
+
+                <ul>
+                    <li>✔ 100% Pure Coconut Oil</li>
+                    <li>✔ Cold Pressed & Natural</li>
+                    <li>✔ Rich in Healthy Fats & Vitamins</li>
+                    <li>✔ Ideal for Cooking & Skincare</li>
+                    <li>✔ Premium Quality Product</li>
+                    <li>✔ Fast Delivery Available</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="bottom-1">
+            <div class="bottom-box">
+                <h1>Coco Nuts</h1>
+                <p>We are here to help you with all your coconut product needs. Feel free to contact us for any
+                    questions, product details, or order support. </p>
+            </div>
+            <div class="bottom-icon">
+                <i class="fa-brands fa-instagram" style="color:#ffffff; margin-top: 5px;"></i>
+                <i class="fa-brands fa-facebook" style="color:#ffffff" ; margin-top: 5px;></i>
+                <i class="fa-brands fa-twitter" style="color:#ffffff" ; margin-top: 5px;></i>
+            </div>
+            <p>coconutstore@gmail.com</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="collection.js"></script>
+    <script src="cart.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
