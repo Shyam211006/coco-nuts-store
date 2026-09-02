@@ -1,11 +1,17 @@
-// seed.js
-// Run with: npm run seed
-// Populates the products collection. Safe to re-run — it clears and re-inserts.
+// routes/seed.js
+// A browser-triggered version of seed.js — visit this URL once on your LIVE
+// site to load products, useful when your local network blocks the
+// mongodb+srv:// DNS lookup but your hosting provider (Render) doesn't.
+//
+// Protected by a simple secret key so random visitors can't wipe your
+// product catalog. Set SEED_KEY in your environment variables (Render
+// Environment tab, or your local .env) to any password you choose.
+//
+// Visit:  https://your-render-url.onrender.com/api/seed?key=YOUR_SEED_KEY
 
-require("dotenv").config();
-const connectDB = require("./config/db");
-const Product = require("./models/Product");
-const mongoose = require("mongoose");
+const express = require("express");
+const router = express.Router();
+const Product = require("../models/Product");
 
 const products = [
   { slug: "coconut", name: "Fresh Coconut", price: 80, mrp: 100, unit: "", rating: "4.8", image: "images/pic1.png",
@@ -28,11 +34,21 @@ const products = [
     description: "Premium desiccated coconut, finely grated and naturally dried, rich in dietary fiber." },
 ];
 
-(async () => {
-  await connectDB();
+router.get("/", async (req, res) => {
+  const providedKey = req.query.key;
+  const realKey = process.env.SEED_KEY;
+
+  if (!realKey) {
+    return res.status(500).send("SEED_KEY is not set in your environment variables. Add it, then redeploy.");
+  }
+  if (providedKey !== realKey) {
+    return res.status(403).send("Wrong or missing key. Visit this URL with ?key=YOUR_SEED_KEY");
+  }
+
   await Product.deleteMany({});
   await Product.insertMany(products);
-  console.log(`Seeded ${products.length} products.`);
-  await mongoose.disconnect();
-  process.exit(0);
-})();
+
+  res.send(`Seeded ${products.length} products successfully. You can now remove this route if you want.`);
+});
+
+module.exports = router;

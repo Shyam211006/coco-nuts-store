@@ -11,6 +11,7 @@ const productsRouter = require("./routes/products");
 const cartRouter = require("./routes/cart");
 const ordersRouter = require("./routes/orders");
 const contactRouter = require("./routes/contact");
+const seedRouter = require("./routes/seed");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -39,6 +40,7 @@ async function start() {
   app.use("/api/cart", cartRouter);
   app.use("/api/orders", ordersRouter);
   app.use("/api/contact", contactRouter);
+  app.use("/api/seed", seedRouter);
 
   app.listen(PORT, () => {
     console.log(`Coco Nuts server running at http://localhost:${PORT}`);
